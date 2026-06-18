@@ -22,3 +22,7 @@ frontend/dist/
 Thumbs.db
 
 venv/
+
+#Test Files
+test_extractor.py
+test_sentiment.py
