@@ -1,21 +1,15 @@
-import trafilatura
+from newspaper import Article
 
 
 def extract_article(url: str):
 
-    print("Fetching article...")
+    article = Article(url)
 
-    downloaded = trafilatura.fetch_url(url)
+    article.download()
 
-    print("Fetch completed")
+    article.parse()
 
-    if not downloaded:
-        raise Exception("Unable to fetch article")
-
-    print("Extracting content...")
-
-    content = trafilatura.extract(downloaded)
-
-    print("Extraction completed")
-
-    return content
+    return {
+        "title": article.title,
+        "content": article.text
+    }

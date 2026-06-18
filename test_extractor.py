@@ -1,8 +1,11 @@
 from backend.services.article_extractor import extract_article
 
-url = input("Enter article URL: ") 
+url = input("Enter article URL: ")
 
-content = extract_article(url)
+article = extract_article(url)
 
-print("\n")
-print(content[:3000])
+print("\nTITLE:\n")
+print(article["title"])
+
+print("\nCONTENT:\n")
+print(article["content"][:3000])
