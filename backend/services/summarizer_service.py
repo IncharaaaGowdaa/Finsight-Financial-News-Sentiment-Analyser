@@ -26,9 +26,20 @@ def summarize_article(text: str):
     {text}
     """
 
-    response = client.models.generate_content(
-        model="gemini-2.5-flash",
-        contents=prompt
-    )
+    try:
+        response = client.models.generate_content(
+            model="gemini-2.0-flash",
+            contents=prompt
+        )
 
-    return response.text
+        return response.text
+
+    except Exception:
+        return "Summary temporarily unavailable."
+
+    # response = client.models.generate_content(
+    #     model="gemini-2.5-flash",
+    #     contents=prompt
+    # )
+
+    # return response.text
